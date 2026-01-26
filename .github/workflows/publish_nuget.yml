@@ -1,0 +1,31 @@
+name: Publikacja do NuGet
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore src/Elisoft.Twilio/Elisoft.Twilio.csproj
+
+    - name: Build
+      run: dotnet build src/Elisoft.Twilio/Elisoft.Twilio.csproj --configuration Release --no-restore
+
+    - name: Run Tests
+      run: dotnet test src/Elisoft.Twilio.Tests/Elisoft.Twilio.Tests.csproj --configuration Release --no-build --verbosity normal
+
+    - name: Pack
+      run: dotnet pack src/Elisoft.Twilio/Elisoft.Twilio.csproj --configuration Release --no-build --output .
+
+    - name: Push to NuGet
+      run: dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
