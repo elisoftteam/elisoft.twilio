@@ -1,0 +1,96 @@
+# Build output folders (for all projects)
+**/[Bb]in/
+**/[Oo]bj/
+
+# .NET generated files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+*.nuget.cache
+
+# NuGet packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# VS-specific folders
+.vs/
+**/.vs/**
+
+# VS solution user files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS-generated cache/layout/metadata
+*.VC.db
+*.VC.VC.opendb
+*.pidb
+*.aps
+*.cache
+*.dbmdl
+*.pdb
+*.ilk
+*.obj
+*.log
+*.tmp
+*.tlog
+*.svclog
+
+# Blazor-specific output
+wwwroot/dist/
+wwwroot/build/
+
+# Static web assets
+**/wwwroot/.scopedcss/
+
+# Rider / JetBrains IDE
+.idea/
+*.sln.iml
+
+# Common system files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Node modules (if using npm/yarn for Blazor WASM frontend)
+node_modules/
+dist/
+build/
+
+# Publish artifacts
+publish/
+*.publishproj
+*.azurePubxml
+*.pubxml
+
+# Logs / Debugging
+*.log
+*.vspscc
+*.vssscc
+TestResult*/
+BuildLog.*
+
+# Others (you had them, but grouped for clarity)
+*.pfx
+*.publishsettings
+*.dbproj.schemaview
+*.jfm
+*.bak
+*.tmp_proj
+~$*
+*~
+
+# User secrets (if used)
+secrets.json
+
+# Configuration files
+appsettings.json
+appsettings.Development.json
