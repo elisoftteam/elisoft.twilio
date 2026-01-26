@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="/Users/kacper/Elisoft/Elisoft.Twilio/README.md" Pack="true" PackagePath="\" />
+        <None Include="../../README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
