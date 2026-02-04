@@ -36,7 +36,7 @@ namespace Elisoft.Notificator.Twilio.Tests
 
             // Act & Assert
             await Should.ThrowAsync<ArgumentNullException>(async () =>
-                await sut.SendSmsAsync(null!, authToken, "123", "456", "msg"));
+                await sut.SendSmsAsync(null!, authToken, "+1234567890", "+1987654321", "msg"));
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace Elisoft.Notificator.Twilio.Tests
 
             // Act & Assert
             await Should.ThrowAsync<ArgumentNullException>(async () =>
-                await sut.SendSmsAsync(accountSid, null!, "123", "456", "msg"));
+                await sut.SendSmsAsync(accountSid, null!, "+1234567890", "+1987654321", "msg"));
         }
 
         [Test]
@@ -58,11 +58,11 @@ namespace Elisoft.Notificator.Twilio.Tests
             // Arrange
             var httpClient = CreateHttpClient(HttpStatusCode.OK);
             var sut = new TwilioNotificator(httpClient, _logger);
-            
+
             var accountSid = _fixture.Create<string>();
             var authToken = _fixture.Create<string>();
-            var from = _fixture.Create<string>();
-            var to = _fixture.Create<string>();
+            var from = "+15005550006"; 
+            var to = "+15005550007";   
             var msg = _fixture.Create<string>();
 
             // Act
@@ -81,8 +81,8 @@ namespace Elisoft.Notificator.Twilio.Tests
 
             var accountSid = _fixture.Create<string>();
             var authToken = _fixture.Create<string>();
-            var from = _fixture.Create<string>();
-            var to = _fixture.Create<string>();
+            var from = "+15005550006"; 
+            var to = "+15005550007";   
             var msg = _fixture.Create<string>();
 
             // Act
@@ -97,7 +97,7 @@ namespace Elisoft.Notificator.Twilio.Tests
         {
             // Arrange
             var handler = A.Fake<HttpMessageHandler>();
-            
+
             A.CallTo(handler)
                 .Where(call => call.Method.Name == "SendAsync")
                 .WithReturnType<Task<HttpResponseMessage>>()
@@ -108,8 +108,8 @@ namespace Elisoft.Notificator.Twilio.Tests
 
             var accountSid = _fixture.Create<string>();
             var authToken = _fixture.Create<string>();
-            var from = _fixture.Create<string>();
-            var to = _fixture.Create<string>();
+            var from = "+15005550006"; 
+            var to = "+15005550007";   
             var msg = _fixture.Create<string>();
 
             // Act

@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Elisoft.Twilio</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Elisoft Team</Authors>
         <Company>Elisoft</Company>
         <Description>A lightweight and simple library for sending notifications SMS with Twilio in .NET applications.</Description>
